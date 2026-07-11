@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPIRAL | Streetwear & Surplus - Calicut</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0d0d0d',
+                            card: '#161616',
+                            accent: '#ccff00', /* Neon Lime Accent */
+                            muted: '#a3a3a3'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0d0d;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between overflow-x-hidden">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 bg-brand-dark/95 backdrop-blur-md border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl font-black tracking-tighter text-white">SPIRAL<span class="text-brand-accent">.</span></span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8 text-xs font-bold tracking-widest uppercase">
+                <a href="#products" class="hover:text-brand-accent transition">Shop Drops</a>
+                <a href="#about" class="hover:text-brand-accent transition">Our Store</a>
+                <a href="https://instagram.com/spiral.store__" target="_blank" class="hover:text-brand-accent transition">Instagram</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <!-- Cart Button Trigger -->
+                <button onclick="toggleCart(true)" class="relative p-2 text-white hover:text-brand-accent transition focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                    </svg>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-brand-accent text-brand-dark text-xs font-black rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-zinc-950 pt-16 pb-20 border-b border-zinc-800 overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(204,255,0,0.08),transparent_45%)]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-800 bg-zinc-900 text-xs font-medium text-zinc-300">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
+                        Calicut, Kerala • All India Delivery 📦
+                    </div>
+                    <h1 class="text-4xl sm:text-6xl font-black tracking-tight leading-none text-white uppercase">
+                        VINTAGE TEES & <br class="hidden sm:inline">
+                        <span class="text-brand-accent">STREETWEAR</span>.
+                    </h1>
+                    <p class="text-base sm:text-lg text-brand-muted max-w-xl font-light">
+                        Curating premium surplus printed tees, utility cargos, and essential accessories. Handpicked drops, limited stock. Ships straight from Kozhikode to your doorstep.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                        <a href="#products" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-sm font-bold rounded-lg text-brand-dark bg-brand-accent hover:bg-white transition duration-300">
+                            Explore Collection
+                        </a>
+                        <a href="https://instagram.com/spiral.store__" target="_blank" class="inline-flex items-center justify-center px-8 py-4 border border-zinc-800 text-sm font-bold rounded-lg text-white bg-zinc-900/50 hover:bg-zinc-900 transition">
+                            Follow Instagram
+                        </a>
+                    </div>
+                </div>
+                <!-- Featured Image Showcase -->
+                <div class="lg:col-span-5 relative">
+                    <div class="aspect-square w-full rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 relative group">
+                        <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&q=80&w=800" alt="Spiral Streetwear Featured Drop" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-6">
+                            <span class="text-xs font-bold text-brand-accent uppercase tracking-wider">Hot Seller</span>
+                            <h3 class="text-xl font-bold text-white">Heavyweight Vintage Print</h3>
+                            <p class="text-sm text-zinc-400">Available in Oversized Fit</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Products Section -->
+    <main id="products" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div>
+                <h2 class="text-3xl font-black tracking-tight text-white uppercase">The Drops</h2>
+                <p class="text-sm text-brand-muted mt-2">Filter and secure your items before stocks run dry.</p>
+            </div>
+            
+            <!-- Category Filters -->
+            <div class="flex flex-wrap gap-2" id="filter-container">
+                <button onclick="filterCategory('all')" id="btn-all" class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase border border-brand-accent bg-brand-accent text-brand-dark transition">All</button>
+                <button onclick="filterCategory('tees')" id="btn-tees" class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase border border-zinc-800 text-zinc-400 hover:border-zinc-700 transition">Tees</button>
+                <button onclick="filterCategory('cargos')" id="btn-cargos" class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase border border-zinc-800 text-zinc-400 hover:border-zinc-700 transition">Cargos</button>
+                <button onclick="filterCategory('accessories')" id="btn-accessories" class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase border border-zinc-800 text-zinc-400 hover:border-zinc-700 transition">Accessories</button>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Dynamic products will render here via JavaScript -->
+        </div>
+    </main>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 border-t border-zinc-800 bg-zinc-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center space-y-6">
+                <h2 class="text-2xl font-black text-white uppercase tracking-tight">SPIRAL STORE, KOZHIKODE</h2>
+                <div class="w-12 h-1 bg-brand-accent mx-auto"></div>
+                <p class="text-base text-brand-muted font-light leading-relaxed">
+                    Based in the heart of Calicut at Loop Street, Mananchira, we are a destination storefront for streetwear heads [2]. Specializing in high-quality surplus printed graphic tees, vintage fits, relax-fit cargo systems, and niche accessories like our signature loop pins.
+                </p>
+                <p class="text-xs text-zinc-500">
+                    Visit us locally or order online. We offer reliable shipping to any pincode across India [1, 2].
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-zinc-800 bg-brand-dark py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-zinc-500">
+            <div>
+                &copy; 2026 Spiral Store Kozhikode. All Rights Reserved.
+            </div>
+            <div class="flex gap-4">
+                <a href="https://instagram.com/spiral.store__" target="_blank" class="hover:text-white transition">Instagram</a>
+                <span>•</span>
+                <span>Direct WhatsApp Order Support</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Slide-out Drawer -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+        <div class="absolute inset-0 overflow-hidden">
+            <!-- Overlay background -->
+            <div onclick="toggleCart(false)" class="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity" aria-hidden="true"></div>
+
+            <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+                <div class="pointer-events-auto w-screen max-w-md">
+                    <div class="flex h-full flex-col bg-zinc-900 border-l border-zinc-800 shadow-xl">
+                        
+                        <!-- Drawer Header -->
+                        <div class="flex items-start justify-between p-6 border-b border-zinc-800">
+                            <h2 class="text-base font-bold text-white uppercase tracking-wider">Your Cart</h2>
+                            <button onclick="toggleCart(false)" class="text-zinc-400 hover:text-white p-1">
+                                <span class="sr-only">Close panel</span>
+                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Drawer Body (Items) -->
+                        <div class="flex-1 overflow-y-auto px-6 py-4 space-y-4" id="cart-items-container">
+                            <!-- Items populated dynamically -->
+                        </div>
+
+                        <!-- Checkout & Subtotal Section -->
+                        <div class="border-t border-zinc-800 p-6 space-y-4 bg-zinc-950/50">
+                            <div class="flex justify-between text-sm font-semibold text-white">
+                                <p>Subtotal</p>
+                                <p id="cart-subtotal" class="text-brand-accent">₹0.00</p>
+                            </div>
+                            <p class="text-xs text-brand-muted">Delivery charges are determined on final confirmation via WhatsApp [2].</p>
+                            
+                            <!-- Buyer Info Form -->
+                            <div class="space-y-3 pt-2 border-t border-zinc-800/60">
+                                <div>
+                                    <label class="block text-[10px] font-bold text-zinc-400 uppercase mb-1">Your Name</label>
+                                    <input id="checkout-name" type="text" placeholder="e.g., Rahul K" class="w-full bg-zinc-950 border border-zinc-850 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-brand-accent">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-zinc-400 uppercase mb-1">Delivery Address & Pincode</label>
+                                    <textarea id="checkout-address" rows="2" placeholder="Full address with pincode [1]" class="w-full bg-zinc-950 border border-zinc-850 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-brand-accent"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="pt-2">
+                                <button onclick="checkoutToWhatsApp()" class="w-full flex items-center justify-center gap-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white py-3 text-xs font-bold uppercase tracking-wider transition">
+                                    Send Order via WhatsApp
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Catalog data based on Spiral Store descriptions
+        const products = [
+            {
+                id: 1,
+                name: "Vintage Surplus Tee (Vintage Faded Black)",
+                category: "tees",
+                price: 499,
+                image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&q=80&w=600",
+                description: "Relaxed vintage washed heavy t-shirt. Limited stock surplus print."
+            },
+            {
+                id: 2,
+                name: "Oversized Utility Cargo Pants",
+                category: "cargos",
+                price: 1299,
+                image: "https://images.unsplash.com/photo-1517462964-21fdcec3f25b?auto=format&fit=crop&q=80&w=600",
+                description: "Multi-pocket configuration with durable stitching and comfortable regular fit."
+            },
+            {
+                id: 3,
+                name: "Two-Sided Loop Pins (Pack of 12)",
+                category: "accessories",
+                price: 185,
+                image: "https://images.unsplash.com/photo-1590548784585-645d2b604d6e?auto=format&fit=crop&q=80&w=600",
+                description: "Strong-hold double sided loop model pins. Choose Black or White pack [2]."
+            },
+            {
+                id: 4,
+                name: "Vintage Graphic Surplus Tee",
+                category: "tees",
+                price: 550,
+                image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&q=80&w=600",
+                description: "Pre-shrunk premium streetwear garment. Authentic surplus collection drop."
+            },
+            {
+                id: 5,
+                name: "Single Double-Sided Loop Pin",
+                category: "accessories",
+                price: 20,
+                image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=600",
+                description: "Single piece strong hold pin perfect for daily and party wear accessories [2]."
+            }
+        ];
+
+        let cart = {};
+
+        // Render products to grid
+        function renderProducts(categoryFilter = 'all') {
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = '';
+
+            const filtered = products.filter(p => categoryFilter === 'all' || p.category === categoryFilter);
+
+            filtered.forEach(p => {
+                const card = document.createElement('div');
+                card.className = "group border border-zinc-800 bg-brand-card rounded-xl overflow-hidden hover:border-zinc-700 transition flex flex-col justify-between";
+                card.innerHTML = `
+                    <div>
+                        <div class="aspect-square w-full overflow-hidden bg-zinc-950 relative">
+                            <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 left-3 bg-brand-dark/80 backdrop-blur text-[10px] text-zinc-300 px-2 py-1 rounded font-bold uppercase tracking-wider">${p.category}</span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-base font-bold text-white tracking-tight">${p.name}</h3>
+                            <p class="text-xs text-zinc-400 mt-2 line-clamp-2">${p.description}</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0">
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-lg font-black text-white">₹${p.price}</span>
+                            <button onclick="addToCart(${p.id})" class="bg-white text-brand-dark hover:bg-brand-accent font-bold px-4 py-2 rounded-lg text-xs transition uppercase tracking-wider">
+                                Add to Bag
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filter button styles handling
+        function filterCategory(category) {
+            renderProducts(category);
+            
+            // Reset active button states
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.className = "filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase border border-zinc-800 text-zinc-400 hover:border-zinc-700 transition";
+            });
+
+            // Set active category state
+            const activeBtn = document.getElementById(`btn-${category}`);
+            if (activeBtn) {
+                activeBtn.className = "filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase border border-brand-accent bg-brand-accent text-brand-dark transition";
+            }
+        }
+
+        // Cart Actions
+        function toggleCart(isOpen) {
+            const drawer = document.getElementById('cart-drawer');
+            if (isOpen) {
+                drawer.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            } else {
+                drawer.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+        }
+
+        function addToCart(id) {
+            if (cart[id]) {
+                cart[id] += 1;
+            } else {
+                cart[id] = 1;
+            }
+            updateCartUI();
+            toggleCart(true);
+        }
+
+        function changeQuantity(id, change) {
+            if (cart[id]) {
+                cart[id] += change;
+                if (cart[id] <= 0) {
+                    delete cart[id];
+                }
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cart-items-container');
+            container.innerHTML = '';
+
+            let totalCount = 0;
+            let subtotal = 0;
+
+            const cartKeys = Object.keys(cart);
+            
+            if (cartKeys.length === 0) {
+                container.innerHTML = `
+                    <div class="flex flex-col items-center justify-center h-64 text-center">
+                        <p class="text-sm text-zinc-500">Your shopping bag is empty.</p>
+                        <button onclick="toggleCart(false)" class="text-brand-accent text-xs uppercase font-bold mt-2 hover:underline">Continue Browsing</button>
+                    </div>
+                `;
+            } else {
+                cartKeys.forEach(id => {
+                    const product = products.find(p => p.id == id);
+                    if (product) {
+                        const qty = cart[id];
+                        totalCount += qty;
+                        subtotal += product.price * qty;
+
+                        const itemDiv = document.createElement('div');
+                        itemDiv.className = "flex items-center gap-4 bg-zinc-950 p-3 rounded-lg border border-zinc-800/50";
+                        itemDiv.innerHTML = `
+                            <img src="${product.image}" class="w-16 h-16 object-cover rounded-md bg-zinc-900 border border-zinc-800">
+                            <div class="flex-1">
+                                <h4 class="text-xs font-bold text-white line-clamp-1">${product.name}</h4>
+                                <p class="text-xs text-brand-accent mt-0.5">₹${product.price}</p>
+                                <div class="flex items-center gap-2 mt-2">
+                                    <button onclick="changeQuantity(${product.id}, -1)" class="w-6 h-6 rounded bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 text-xs font-bold flex items-center justify-center">-</button>
+                                    <span class="text-xs text-white min-w-4 text-center">${qty}</span>
+                                    <button onclick="changeQuantity(${product.id}, 1)" class="w-6 h-6 rounded bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 text-xs font-bold flex items-center justify-center">+</button>
+                                </div>
+                            </div>
+                        `;
+                        container.appendChild(itemDiv);
+                    }
+                });
+            }
+
+            document.getElementById('cart-count').innerText = totalCount;
+            document.getElementById('cart-subtotal').innerText = `₹${subtotal.toLocaleString('en-IN')}`;
+        }
+
+        // Direct-to-WhatsApp Checkout Message Compiler
+        function checkoutToWhatsApp() {
+            const name = document.getElementById('checkout-name').value.trim();
+            const address = document.getElementById('checkout-address').value.trim();
+
+            if (!name || !address) {
+                alert('Please input your delivery Name and complete Address before completing order.');
+                return;
+            }
+
+            const cartKeys = Object.keys(cart);
+            if (cartKeys.length === 0) {
+                alert('Your bag is empty.');
+                return;
+            }
+
+            let message = `*NEW ORDER - SPIRAL STORE*\n`;
+            message += `-------------------------\n`;
+            message += `*Customer:* ${name}\n`;
+            message += `*Address:* ${address}\n\n`;
+            message += `*Ordered Items:*\n`;
+
+            let subtotal = 0;
+            cartKeys.forEach(id => {
+                const product = products.find(p => p.id == id);
+                if (product) {
+                    const qty = cart[id];
+                    const itemTotal = product.price * qty;
+                    subtotal += itemTotal;
+                    message += `- ${product.name} (Qty: ${qty}) - ₹${itemTotal}\n`;
+                }
+            });
+
+            message += `\n*Subtotal:* ₹${subtotal}\n`;
+            message += `-------------------------\n`;
+            message += `Please confirm shipping availability for my area.`;
+
+            const whatsappNumber = "917592875366"; // Official Spiral Store phone number [1, 2]
+            const encodedText = encodeURIComponent(message);
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodedText}`, '_blank');
+        }
+
+        // Initialize Product Listing on Load
+        window.onload = () => {
+            renderProducts();
+        };
+    </script>
+</body>
+</html>
