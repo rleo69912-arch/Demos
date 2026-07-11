@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPIRAL | Streetwear & Surplus - Calicut</title>
+    <title>SPIRAL® | Premium Streetwear Drop - Calicut</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -12,14 +12,19 @@
                 extend: {
                     colors: {
                         brand: {
-                            dark: '#0d0d0d',
-                            card: '#161616',
-                            accent: '#ccff00', /* Neon Lime Accent */
-                            muted: '#a3a3a3'
+                            dark: '#050505',
+                            card: '#0d0d0d',
+                            accent: '#ccff00', /* Cyber Lime Volt */
+                            silver: '#e2e8f0',
+                            gray: '#1a1a1a'
                         }
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['Cabinet Grotesk', 'Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-fast': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'glitch': 'glitch 1s infinite',
                     }
                 }
             }
@@ -30,148 +35,162 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0d0d0d;
+            background-color: #050505;
             color: #ffffff;
+            overflow-x: hidden;
+        }
+        /* Custom styled scrollbar for a cohesive aesthetic */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1a1a1a;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ccff00;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between overflow-x-hidden">
+<body class="min-h-screen flex flex-col justify-between">
 
     <!-- Header / Navbar -->
-    <header class="sticky top-0 z-40 bg-brand-dark/95 backdrop-blur-md border-b border-zinc-800">
+    <header class="sticky top-0 z-40 bg-black/80 backdrop-blur-lg border-b border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center gap-2">
-                <span class="text-2xl font-black tracking-tighter text-white">SPIRAL<span class="text-brand-accent">.</span></span>
+                <span class="text-xl font-black tracking-[0.2em] text-white">SPIRAL<span class="text-brand-accent">®</span></span>
             </div>
             
-            <nav class="hidden md:flex space-x-8 text-xs font-bold tracking-widest uppercase">
-                <a href="#products" class="hover:text-brand-accent transition">Shop Drops</a>
-                <a href="#about" class="hover:text-brand-accent transition">Our Store</a>
-                <a href="https://instagram.com/spiral.store__" target="_blank" class="hover:text-brand-accent transition">Instagram</a>
+            <nav class="hidden md:flex space-x-10 text-[10px] font-bold tracking-[0.3em] text-zinc-400 uppercase">
+                <a href="#products" class="hover:text-brand-accent transition-colors duration-300">Catalog Drops</a>
+                <a href="#about" class="hover:text-brand-accent transition-colors duration-300">Origin story</a>
+                <a href="https://instagram.com/spiral.store__" target="_blank" class="hover:text-brand-accent transition-colors duration-300">Instagram</a>
             </nav>
 
             <div class="flex items-center gap-4">
-                <!-- Cart Button Trigger -->
-                <button onclick="toggleCart(true)" class="relative p-2 text-white hover:text-brand-accent transition focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <!-- Shopping Bag button -->
+                <button onclick="toggleCart(true)" class="relative p-2 text-white hover:text-brand-accent transition-colors duration-300 focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                     </svg>
-                    <span id="cart-count" class="absolute -top-1 -right-1 bg-brand-accent text-brand-dark text-xs font-black rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-brand-accent text-black text-[9px] font-black rounded-full h-4 w-4 flex items-center justify-center">0</span>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="relative bg-zinc-950 pt-16 pb-20 border-b border-zinc-800 overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(204,255,0,0.08),transparent_45%)]"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-7 space-y-6">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-800 bg-zinc-900 text-xs font-medium text-zinc-300">
-                        <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
-                        Calicut, Kerala • All India Delivery 📦
-                    </div>
-                    <h1 class="text-4xl sm:text-6xl font-black tracking-tight leading-none text-white uppercase">
-                        VINTAGE TEES & <br class="hidden sm:inline">
-                        <span class="text-brand-accent">STREETWEAR</span>.
-                    </h1>
-                    <p class="text-base sm:text-lg text-brand-muted max-w-xl font-light">
-                        Curating premium surplus printed tees, utility cargos, and essential accessories. Handpicked drops, limited stock. Ships straight from Kozhikode to your doorstep.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 pt-2">
-                        <a href="#products" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-sm font-bold rounded-lg text-brand-dark bg-brand-accent hover:bg-white transition duration-300">
-                            Explore Collection
-                        </a>
-                        <a href="https://instagram.com/spiral.store__" target="_blank" class="inline-flex items-center justify-center px-8 py-4 border border-zinc-800 text-sm font-bold rounded-lg text-white bg-zinc-900/50 hover:bg-zinc-900 transition">
-                            Follow Instagram
-                        </a>
-                    </div>
-                </div>
-                <!-- Featured Image Showcase -->
-                <div class="lg:col-span-5 relative">
-                    <div class="aspect-square w-full rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 relative group">
-                        <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&q=80&w=800" alt="Spiral Streetwear Featured Drop" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-6">
-                            <span class="text-xs font-bold text-brand-accent uppercase tracking-wider">Hot Seller</span>
-                            <h3 class="text-xl font-bold text-white">Heavyweight Vintage Print</h3>
-                            <p class="text-sm text-zinc-400">Available in Oversized Fit</p>
-                        </div>
-                    </div>
-                </div>
+    <!-- Ultra Hero Section (Video Loop & Streetwear Overlays) -->
+    <section class="relative h-[85vh] flex items-center justify-center overflow-hidden border-b border-zinc-900 bg-black">
+        <!-- Overlay for contrast -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/30 to-black/60 z-10"></div>
+        <div class="absolute inset-0 bg-black/20 z-10"></div>
+        
+        <!-- Live Video Loop from Stock (Fashion Shoot / Streetwear model context) -->
+        <video class="absolute inset-0 w-full h-full object-cover opacity-60 z-0" autoplay loop muted playsinline>
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-taking-photos-from-different-angles-of-a-model-34421-large.mp4" type="video/mp4">
+        </video>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center space-y-8">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-black/50 backdrop-blur-md text-[10px] font-bold tracking-[0.2em] text-brand-accent uppercase">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-accent animate-ping"></span>
+                Drop 013: Surplus Vintage System Is Live [2]
+            </div>
+            
+            <div class="space-y-4">
+                <h1 class="text-5xl sm:text-7xl lg:text-9xl font-black tracking-tighter leading-none text-white uppercase italic">
+                    SPIRAL<span class="text-brand-accent">.</span>SYSTEM
+                </h1>
+                <p class="text-xs sm:text-sm tracking-[0.3em] text-zinc-400 uppercase font-light max-w-xl mx-auto leading-relaxed">
+                    Surplus apparel & custom utility accessories. Hand-curated in Kozhikode, delivering nationwide [1, 2].
+                </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
+                <a href="#products" class="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase rounded bg-brand-accent text-black hover:bg-white hover:scale-105 transition-all duration-300">
+                    Acquire Drop
+                </a>
+                <a href="https://instagram.com/spiral.store__" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase rounded border border-white/20 text-white bg-black/40 backdrop-blur-md hover:bg-white/10 transition-all duration-300">
+                    Follow Intel
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Main Products Section -->
-    <main id="products" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+    <!-- Interactive Drop Grid Section -->
+    <main id="products" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div>
-                <h2 class="text-3xl font-black tracking-tight text-white uppercase">The Drops</h2>
-                <p class="text-sm text-brand-muted mt-2">Filter and secure your items before stocks run dry.</p>
+                <span class="text-[10px] font-bold tracking-[0.3em] text-brand-accent uppercase">Curated Catalog</span>
+                <h2 class="text-3xl font-black tracking-tight text-white uppercase mt-1">Surplus Allocation</h2>
             </div>
             
-            <!-- Category Filters -->
+            <!-- Filters -->
             <div class="flex flex-wrap gap-2" id="filter-container">
-                <button onclick="filterCategory('all')" id="btn-all" class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase border border-brand-accent bg-brand-accent text-brand-dark transition">All</button>
-                <button onclick="filterCategory('tees')" id="btn-tees" class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase border border-zinc-800 text-zinc-400 hover:border-zinc-700 transition">Tees</button>
-                <button onclick="filterCategory('cargos')" id="btn-cargos" class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase border border-zinc-800 text-zinc-400 hover:border-zinc-700 transition">Cargos</button>
-                <button onclick="filterCategory('accessories')" id="btn-accessories" class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase border border-zinc-800 text-zinc-400 hover:border-zinc-700 transition">Accessories</button>
+                <button onclick="filterCategory('all')" id="btn-all" class="filter-btn px-6 py-2 rounded text-[10px] font-bold tracking-[0.2em] uppercase border border-brand-accent bg-brand-accent text-black transition-all duration-300">All Systems</button>
+                <button onclick="filterCategory('tees')" id="btn-tees" class="filter-btn px-6 py-2 rounded text-[10px] font-bold tracking-[0.2em] uppercase border border-white/10 text-zinc-400 hover:border-brand-accent hover:text-white transition-all duration-300">Tees</button>
+                <button onclick="filterCategory('cargos')" id="btn-cargos" class="filter-btn px-6 py-2 rounded text-[10px] font-bold tracking-[0.2em] uppercase border border-white/10 text-zinc-400 hover:border-brand-accent hover:text-white transition-all duration-300">Cargos</button>
+                <button onclick="filterCategory('accessories')" id="btn-accessories" class="filter-btn px-6 py-2 rounded text-[10px] font-bold tracking-[0.2em] uppercase border border-white/10 text-zinc-400 hover:border-brand-accent hover:text-white transition-all duration-300">Accessories</button>
             </div>
         </div>
 
         <!-- Product Grid -->
-        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Dynamic products will render here via JavaScript -->
+        <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-8">
+            <!-- Rendered dynamically -->
         </div>
     </main>
 
-    <!-- About Section -->
-    <section id="about" class="py-16 border-t border-zinc-800 bg-zinc-950">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl mx-auto text-center space-y-6">
-                <h2 class="text-2xl font-black text-white uppercase tracking-tight">SPIRAL STORE, KOZHIKODE</h2>
-                <div class="w-12 h-1 bg-brand-accent mx-auto"></div>
-                <p class="text-base text-brand-muted font-light leading-relaxed">
-                    Based in the heart of Calicut at Loop Street, Mananchira, we are a destination storefront for streetwear heads [2]. Specializing in high-quality surplus printed graphic tees, vintage fits, relax-fit cargo systems, and niche accessories like our signature loop pins.
+    <!-- Brand Identity Section -->
+    <section id="about" class="py-24 border-t border-zinc-900 bg-black relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(204,255,0,0.03),transparent_50%)]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-4xl mx-auto text-center space-y-8">
+                <span class="text-[10px] font-bold tracking-[0.4em] text-brand-accent uppercase">SPIRAL BASE_DEPT</span>
+                <h3 class="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight leading-none">
+                    STREETWEAR CURATORS FROM KOZHIKODE [2]
+                </h3>
+                <p class="text-sm text-zinc-400 font-light leading-relaxed max-w-2xl mx-auto">
+                    Operating out of Loop Street, Mananchira, Kozhikode, we offer premium surplus printed graphic tees, custom multi-pocket cargos, and strong-hold two-sided hijab/loop pins [2]. Our pieces are designed for high utility and long lifespan.
                 </p>
-                <p class="text-xs text-zinc-500">
-                    Visit us locally or order online. We offer reliable shipping to any pincode across India [1, 2].
+                <p class="text-[10px] tracking-[0.2em] text-zinc-600 uppercase">
+                    All-India standard courier systems integrated [1, 2].
                 </p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-zinc-800 bg-brand-dark py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-zinc-500">
+    <footer class="border-t border-zinc-900 bg-brand-dark py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] text-zinc-500 uppercase tracking-widest">
             <div>
-                &copy; 2026 Spiral Store Kozhikode. All Rights Reserved.
+                &copy; 2026 SPIRAL® SYSTEM. ALL SYSTEM RIGHTS RESERVED.
             </div>
-            <div class="flex gap-4">
-                <a href="https://instagram.com/spiral.store__" target="_blank" class="hover:text-white transition">Instagram</a>
+            <div class="flex gap-6">
+                <a href="https://instagram.com/spiral.store__" target="_blank" class="hover:text-white transition-colors">Instagram</a>
                 <span>•</span>
-                <span>Direct WhatsApp Order Support</span>
+                <span>Calicut Base</span>
             </div>
         </div>
     </footer>
 
-    <!-- Shopping Cart Slide-out Drawer -->
+    <!-- Premium Cart Drawer -->
     <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
         <div class="absolute inset-0 overflow-hidden">
             <!-- Overlay background -->
-            <div onclick="toggleCart(false)" class="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity" aria-hidden="true"></div>
+            <div onclick="toggleCart(false)" class="absolute inset-0 bg-black/80 backdrop-blur-md transition-opacity" aria-hidden="true"></div>
 
             <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
                 <div class="pointer-events-auto w-screen max-w-md">
-                    <div class="flex h-full flex-col bg-zinc-900 border-l border-zinc-800 shadow-xl">
+                    <div class="flex h-full flex-col bg-brand-card border-l border-zinc-900 shadow-2xl">
                         
                         <!-- Drawer Header -->
-                        <div class="flex items-start justify-between p-6 border-b border-zinc-800">
-                            <h2 class="text-base font-bold text-white uppercase tracking-wider">Your Cart</h2>
-                            <button onclick="toggleCart(false)" class="text-zinc-400 hover:text-white p-1">
+                        <div class="flex items-start justify-between p-6 border-b border-zinc-900">
+                            <h2 class="text-xs font-bold text-white uppercase tracking-[0.2em]">Allocated Bag</h2>
+                            <button onclick="toggleCart(false)" class="text-zinc-500 hover:text-white p-1 transition-colors">
                                 <span class="sr-only">Close panel</span>
-                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                             </button>
@@ -179,32 +198,31 @@
 
                         <!-- Drawer Body (Items) -->
                         <div class="flex-1 overflow-y-auto px-6 py-4 space-y-4" id="cart-items-container">
-                            <!-- Items populated dynamically -->
+                            <!-- Populated via JS -->
                         </div>
 
-                        <!-- Checkout & Subtotal Section -->
-                        <div class="border-t border-zinc-800 p-6 space-y-4 bg-zinc-950/50">
-                            <div class="flex justify-between text-sm font-semibold text-white">
-                                <p>Subtotal</p>
+                        <!-- Checkout Form and WhatsApp Transfer -->
+                        <div class="border-t border-zinc-900 p-6 space-y-6 bg-black/50">
+                            <div class="flex justify-between text-xs font-bold text-white uppercase tracking-wider">
+                                <p>Total Valuation</p>
                                 <p id="cart-subtotal" class="text-brand-accent">₹0.00</p>
                             </div>
-                            <p class="text-xs text-brand-muted">Delivery charges are determined on final confirmation via WhatsApp [2].</p>
                             
-                            <!-- Buyer Info Form -->
-                            <div class="space-y-3 pt-2 border-t border-zinc-800/60">
+                            <!-- Shipping info -->
+                            <div class="space-y-4 pt-4 border-t border-zinc-900">
                                 <div>
-                                    <label class="block text-[10px] font-bold text-zinc-400 uppercase mb-1">Your Name</label>
-                                    <input id="checkout-name" type="text" placeholder="e.g., Rahul K" class="w-full bg-zinc-950 border border-zinc-850 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-brand-accent">
+                                    <label class="block text-[8px] font-bold text-zinc-500 uppercase tracking-widest mb-1.5">Recipient Full Name</label>
+                                    <input id="checkout-name" type="text" placeholder="e.g., ADITHYA S" class="w-full bg-brand-dark border border-zinc-850 rounded px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-accent">
                                 </div>
                                 <div>
-                                    <label class="block text-[10px] font-bold text-zinc-400 uppercase mb-1">Delivery Address & Pincode</label>
-                                    <textarea id="checkout-address" rows="2" placeholder="Full address with pincode [1]" class="w-full bg-zinc-950 border border-zinc-850 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-brand-accent"></textarea>
+                                    <label class="block text-[8px] font-bold text-zinc-500 uppercase tracking-widest mb-1.5">Dispatch Destination & Pincode</label>
+                                    <textarea id="checkout-address" rows="2" placeholder="Full postal delivery coordinate details [1]" class="w-full bg-brand-dark border border-zinc-850 rounded px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-accent"></textarea>
                                 </div>
                             </div>
 
                             <div class="pt-2">
-                                <button onclick="checkoutToWhatsApp()" class="w-full flex items-center justify-center gap-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white py-3 text-xs font-bold uppercase tracking-wider transition">
-                                    Send Order via WhatsApp
+                                <button onclick="checkoutToWhatsApp()" class="w-full flex items-center justify-center gap-2 rounded bg-brand-accent hover:bg-white text-black py-4 text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-300">
+                                    Send Drop Order via WhatsApp
                                 </button>
                             </div>
                         </div>
@@ -215,25 +233,26 @@
         </div>
     </div>
 
-    <!-- JavaScript Logic -->
+    <!-- Interactive Script Systems -->
     <script>
-        // Catalog data based on Spiral Store descriptions
         const products = [
             {
                 id: 1,
-                name: "Vintage Surplus Tee (Vintage Faded Black)",
+                name: "System Surplus Tee (Acid Wash)",
                 category: "tees",
                 price: 499,
                 image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&q=80&w=600",
-                description: "Relaxed vintage washed heavy t-shirt. Limited stock surplus print."
+                code: "SYS-TEE-04",
+                description: "Relaxed heavyweight fabric with vintage acid wash distress printing."
             },
             {
                 id: 2,
-                name: "Oversized Utility Cargo Pants",
+                name: "Modular Cargo Pants V1",
                 category: "cargos",
                 price: 1299,
                 image: "https://images.unsplash.com/photo-1517462964-21fdcec3f25b?auto=format&fit=crop&q=80&w=600",
-                description: "Multi-pocket configuration with durable stitching and comfortable regular fit."
+                code: "CARGO-V1",
+                description: "Equipped with multi-point pocket configuration and premium canvas construction."
             },
             {
                 id: 3,
@@ -241,29 +260,31 @@
                 category: "accessories",
                 price: 185,
                 image: "https://images.unsplash.com/photo-1590548784585-645d2b604d6e?auto=format&fit=crop&q=80&w=600",
-                description: "Strong-hold double sided loop model pins. Choose Black or White pack [2]."
+                code: "ACC-LPPIN",
+                description: "Double sided premium structure loop model hijab/outfit fasteners [2]."
             },
             {
                 id: 4,
-                name: "Vintage Graphic Surplus Tee",
+                name: "Premium Streetwear Surplus Tee",
                 category: "tees",
                 price: 550,
                 image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&q=80&w=600",
-                description: "Pre-shrunk premium streetwear garment. Authentic surplus collection drop."
+                code: "SYS-TEE-09",
+                description: "Heavyweight drop-shoulder pattern featuring graphic print placement."
             },
             {
                 id: 5,
-                name: "Single Double-Sided Loop Pin",
+                name: "Loop Pin Single Fastener",
                 category: "accessories",
                 price: 20,
                 image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=600",
-                description: "Single piece strong hold pin perfect for daily and party wear accessories [2]."
+                code: "ACC-LPPIN-SGL",
+                description: "Single piece secure fastener accessory ideal for daily wear setups [2]."
             }
         ];
 
         let cart = {};
 
-        // Render products to grid
         function renderProducts(categoryFilter = 'all') {
             const grid = document.getElementById('product-grid');
             grid.innerHTML = '';
@@ -272,49 +293,47 @@
 
             filtered.forEach(p => {
                 const card = document.createElement('div');
-                card.className = "group border border-zinc-800 bg-brand-card rounded-xl overflow-hidden hover:border-zinc-700 transition flex flex-col justify-between";
+                card.className = "group relative flex flex-col justify-between border-b border-zinc-900 pb-8";
                 card.innerHTML = `
                     <div>
-                        <div class="aspect-square w-full overflow-hidden bg-zinc-950 relative">
-                            <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                            <span class="absolute top-3 left-3 bg-brand-dark/80 backdrop-blur text-[10px] text-zinc-300 px-2 py-1 rounded font-bold uppercase tracking-wider">${p.category}</span>
+                        <div class="aspect-[3/4] w-full overflow-hidden bg-zinc-950 relative rounded-lg">
+                            <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute bottom-4 left-4 z-20 flex gap-1.5">
+                                <span class="bg-black/80 backdrop-blur text-[8px] font-black text-brand-accent px-2.5 py-1 rounded tracking-widest uppercase">${p.code}</span>
+                            </div>
                         </div>
-                        <div class="p-5">
-                            <h3 class="text-base font-bold text-white tracking-tight">${p.name}</h3>
-                            <p class="text-xs text-zinc-400 mt-2 line-clamp-2">${p.description}</p>
+                        <div class="mt-6 flex justify-between items-start">
+                            <div>
+                                <h3 class="text-sm font-bold text-white tracking-tight group-hover:text-brand-accent transition-colors duration-300">${p.name}</h3>
+                                <p class="text-xs text-zinc-500 mt-1">${p.description}</p>
+                            </div>
+                            <span class="text-sm font-black text-white pl-4">₹${p.price}</span>
                         </div>
                     </div>
-                    <div class="p-5 pt-0">
-                        <div class="flex items-center justify-between mt-4">
-                            <span class="text-lg font-black text-white">₹${p.price}</span>
-                            <button onclick="addToCart(${p.id})" class="bg-white text-brand-dark hover:bg-brand-accent font-bold px-4 py-2 rounded-lg text-xs transition uppercase tracking-wider">
-                                Add to Bag
-                            </button>
-                        </div>
+                    <div class="mt-6">
+                        <button onclick="addToCart(${p.id})" class="w-full bg-zinc-900 hover:bg-brand-accent hover:text-black text-white text-[9px] font-bold tracking-[0.2em] py-3.5 rounded transition-all duration-300 uppercase">
+                            Add to Bag
+                        </button>
                     </div>
                 `;
                 grid.appendChild(card);
             });
         }
 
-        // Filter button styles handling
         function filterCategory(category) {
             renderProducts(category);
             
-            // Reset active button states
             const buttons = document.querySelectorAll('.filter-btn');
             buttons.forEach(btn => {
-                btn.className = "filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase border border-zinc-800 text-zinc-400 hover:border-zinc-700 transition";
+                btn.className = "filter-btn px-6 py-2 rounded text-[10px] font-bold tracking-[0.2em] uppercase border border-white/10 text-zinc-400 hover:border-brand-accent hover:text-white transition-all duration-300";
             });
 
-            // Set active category state
             const activeBtn = document.getElementById(`btn-${category}`);
             if (activeBtn) {
-                activeBtn.className = "filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase border border-brand-accent bg-brand-accent text-brand-dark transition";
+                activeBtn.className = "filter-btn px-6 py-2 rounded text-[10px] font-bold tracking-[0.2em] uppercase border border-brand-accent bg-brand-accent text-black transition-all duration-300";
             }
         }
 
-        // Cart Actions
         function toggleCart(isOpen) {
             const drawer = document.getElementById('cart-drawer');
             if (isOpen) {
@@ -331,114 +350,3 @@
                 cart[id] += 1;
             } else {
                 cart[id] = 1;
-            }
-            updateCartUI();
-            toggleCart(true);
-        }
-
-        function changeQuantity(id, change) {
-            if (cart[id]) {
-                cart[id] += change;
-                if (cart[id] <= 0) {
-                    delete cart[id];
-                }
-            }
-            updateCartUI();
-        }
-
-        function updateCartUI() {
-            const container = document.getElementById('cart-items-container');
-            container.innerHTML = '';
-
-            let totalCount = 0;
-            let subtotal = 0;
-
-            const cartKeys = Object.keys(cart);
-            
-            if (cartKeys.length === 0) {
-                container.innerHTML = `
-                    <div class="flex flex-col items-center justify-center h-64 text-center">
-                        <p class="text-sm text-zinc-500">Your shopping bag is empty.</p>
-                        <button onclick="toggleCart(false)" class="text-brand-accent text-xs uppercase font-bold mt-2 hover:underline">Continue Browsing</button>
-                    </div>
-                `;
-            } else {
-                cartKeys.forEach(id => {
-                    const product = products.find(p => p.id == id);
-                    if (product) {
-                        const qty = cart[id];
-                        totalCount += qty;
-                        subtotal += product.price * qty;
-
-                        const itemDiv = document.createElement('div');
-                        itemDiv.className = "flex items-center gap-4 bg-zinc-950 p-3 rounded-lg border border-zinc-800/50";
-                        itemDiv.innerHTML = `
-                            <img src="${product.image}" class="w-16 h-16 object-cover rounded-md bg-zinc-900 border border-zinc-800">
-                            <div class="flex-1">
-                                <h4 class="text-xs font-bold text-white line-clamp-1">${product.name}</h4>
-                                <p class="text-xs text-brand-accent mt-0.5">₹${product.price}</p>
-                                <div class="flex items-center gap-2 mt-2">
-                                    <button onclick="changeQuantity(${product.id}, -1)" class="w-6 h-6 rounded bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 text-xs font-bold flex items-center justify-center">-</button>
-                                    <span class="text-xs text-white min-w-4 text-center">${qty}</span>
-                                    <button onclick="changeQuantity(${product.id}, 1)" class="w-6 h-6 rounded bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 text-xs font-bold flex items-center justify-center">+</button>
-                                </div>
-                            </div>
-                        `;
-                        container.appendChild(itemDiv);
-                    }
-                });
-            }
-
-            document.getElementById('cart-count').innerText = totalCount;
-            document.getElementById('cart-subtotal').innerText = `₹${subtotal.toLocaleString('en-IN')}`;
-        }
-
-        // Direct-to-WhatsApp Checkout Message Compiler
-        function checkoutToWhatsApp() {
-            const name = document.getElementById('checkout-name').value.trim();
-            const address = document.getElementById('checkout-address').value.trim();
-
-            if (!name || !address) {
-                alert('Please input your delivery Name and complete Address before completing order.');
-                return;
-            }
-
-            const cartKeys = Object.keys(cart);
-            if (cartKeys.length === 0) {
-                alert('Your bag is empty.');
-                return;
-            }
-
-            let message = `*NEW ORDER - SPIRAL STORE*\n`;
-            message += `-------------------------\n`;
-            message += `*Customer:* ${name}\n`;
-            message += `*Address:* ${address}\n\n`;
-            message += `*Ordered Items:*\n`;
-
-            let subtotal = 0;
-            cartKeys.forEach(id => {
-                const product = products.find(p => p.id == id);
-                if (product) {
-                    const qty = cart[id];
-                    const itemTotal = product.price * qty;
-                    subtotal += itemTotal;
-                    message += `- ${product.name} (Qty: ${qty}) - ₹${itemTotal}\n`;
-                }
-            });
-
-            message += `\n*Subtotal:* ₹${subtotal}\n`;
-            message += `-------------------------\n`;
-            message += `Please confirm shipping availability for my area.`;
-
-            const whatsappNumber = "917592875366"; // Official Spiral Store phone number [1, 2]
-            const encodedText = encodeURIComponent(message);
-            window.open(`https://wa.me/${whatsappNumber}?text=${encodedText}`, '_blank');
-        }
-
-        // Initialize Product Listing on Load
-        window.onload = () => {
-            renderProducts();
-        };
-    </script>
-</body>
-</html>
