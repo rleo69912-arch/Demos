@@ -8,8 +8,48 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #f4f7fa;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+        
+        .card {
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .animate-fade {
+            animation: fadeIn 2s;
+        }
+
+        .animate-slide {
+            animation: slideIn 2s;
+        }
+
+        .animate-zoom {
+            animation: zoomIn 2s;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        @keyframes slideIn {
+            from {transform: translateX(-100%);}
+            to {transform: translateX(0);}
+        }
+
+        @keyframes zoomIn {
+            from {transform: scale(0.5);}
+            to {transform: scale(1);}
+        }
+    </style>
 </head>
 <body>
     <header class="bg-primary text-white text-center py-4 mb-4">
